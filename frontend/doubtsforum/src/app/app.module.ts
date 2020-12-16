@@ -10,12 +10,16 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommentTree } from './components/comment-tree/comment-tree.component';
+import { CommentingComponent } from './components/commenting/commenting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    CommentTree,
+    CommentingComponent,
   ],
   imports: [
     FormsModule,

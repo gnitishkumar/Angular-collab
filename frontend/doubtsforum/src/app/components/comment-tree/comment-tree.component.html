@@ -1,0 +1,18 @@
+
+
+
+
+
+
+<div id="mainDiv" *ngFor="let comment of comments">
+	<label>{{comment.text}}</label>
+	<br>
+	<button (click)="openCommentText(comment)">Anwser</button>
+	<div *ngIf="comment.isOpen">
+		<textarea [(ngModel)]="text" cols="80" rows="7"></textarea>
+		<br>
+		<button (click)="addComment(comment)">OK</button>
+	</div>
+	<comment-tree [comments]="comment.anwsers">
+    </comment-tree>
+</div>
