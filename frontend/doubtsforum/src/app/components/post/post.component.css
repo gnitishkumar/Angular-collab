@@ -2,14 +2,24 @@
     opacity: 0.75;
     font-size: 0.75em;
 }
-  
+h1{
+  margin: 25px auto;
+  text-align: center;
+  color: blueviolet;
+  border-bottom:1px solid antiquewhite;
+}
+  .post-form{
+    position: relative;
+    left: 30%;
+    top:10%;
+  }
 .category{
   width: 20%;
   top: 1rem;
   left: 5px;
 }
 .question{
-  margin-top:0.75rem;
+  margin-top:1rem;
   width:50%;
   margin-left: 5px;
 }
