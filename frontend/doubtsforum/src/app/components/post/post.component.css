@@ -1,0 +1,26 @@
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+  
+.category{
+  width: 20%;
+  top: 1rem;
+  left: 5px;
+}
+.question{
+  margin-top:0.75rem;
+  width:50%;
+  margin-left: 5px;
+}
+
+.post-btn
+{
+  margin-top: 0.75rem;
+  margin-left: 5px;
+  background-color: rgb(160, 137, 241);
+  cursor: pointer;
+}
+.post-btn:hover{
+  background-color: rgb(145, 17, 236);
+}

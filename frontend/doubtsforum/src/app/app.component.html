@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+
    <nav class="main-navbar">
       <div class="navbar-first">
 
         <div class="logo">
 
         </div>
-        <div class="logo-name main-color">
+        <div class="logo-name main-color" routerLinkActive='Active' routerLink=''>
           Doubts Forum
         </div>
       </div>
       <div class="navbar-second">
-        <div class="post-doubts main-color">
+        <div class="post-doubts main-color" routerLinkActive='Active' routerLink='post'>
           POST
         </div>
         <div class="resolved-doubts main-color">
@@ -27,143 +20,5 @@
           ACCOUNT
         </div>
       </div>
-
    </nav>
-    <div class="arrange">
-      <section class="categories">
-          <h5 class="cat-name">CATEGORIES</h5>
-          <ul class="ul-list">
-            <li>General</li>
-            <li>Technology</li>
-            <li>Gaming</li>
-            <li>Sports</li>
-            <li>Travel</li>
-            <li>Politics</li>
-            <li>Health</li>
-            <li>Fashion</li>
-            <li>Education</li>
-          </ul>
-      </section>
-      <div class="disc-thread">
-      <section class="discussion">
-          <div class="top-section">
-            <div class="arrangement">
-              <div class="user-logo">
-                <i class="fas fa-user-circle fa-2x userlogo"></i>
-              </div>
-              <div class="user-name">
-                <span>&nbsp;&nbsp; Cristiano Ronaldo</span>
-                <p class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Student</p>
-              </div>
-            </div>
-              <div class="posted-time">
-                <i class="fas fa-history time-color"></i>
-              <span class="time-color">&nbsp;3 hours ago</span>
-              </div>
-          </div>
-          <hr>
-          <div class="middle section">
-            <div class="category-name">
-              <span class="blue-box">Technology</span>&nbsp;&nbsp;
-              <span class="blue-box">Sports</span>
-            </div>
-            <div class="question">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto aliquid repellat iure consequuntur? Blanditiis quibusdam odio, explicabo enim labore obcaecati recusandae voluptate tenetur cum, id consectetur molestias corrupti reprehenderit!
-            </div>
-          </div>
-          <div class="bottom-section">
-            <div class="first-bottom">
-              <div class="likes heffect">
-                <i class="far fa-thumbs-up"></i>
-                <p>Like</p>
-              </div>
-              <div class="comments heffect">
-                <i class="far fa-comment-alt"></i>
-                <p>Comments</p>
-              </div>
-              <div class="share heffect">
-                <i class="fas fa-share"></i>
-                <p>Share</p>
-              </div>
-            </div>
-            <div class="second-bottom">
-              <div class="hide heffect">
-                <i class="fas fa-minus-circle"></i>
-                <p>Hide</p>
-              </div>
-              <div class="report heffect">
-                <i class="fas fa-ban"></i>
-                <p>Report</p>
-              </div>
-            </div>
-          </div>
-      </section>
-      <section class="discussion">
-        <div class="top-section">
-          <div class="arrangement">
-            <div class="user-logo">
-              <i class="fas fa-user-circle fa-2x userlogo"></i>
-            </div>
-            <div class="user-name">
-              <span>&nbsp;&nbsp; Cristiano Ronaldo</span>
-              <p class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Student</p>
-            </div>
-          </div>
-            <div class="posted-time">
-              <i class="fas fa-history time-color"></i>
-            <span class="time-color">&nbsp;3 hours ago</span>
-            </div>
-        </div>
-        <hr>
-        <div class="middle section">
-          <div class="category-name">
-            <span class="blue-box">Technology</span>&nbsp;&nbsp;
-            <span class="blue-box">Sports</span>
-          </div>
-          <div class="question">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto aliquid repellat iure consequuntur? Blanditiis quibusdam odio, explicabo enim labore obcaecati recusandae voluptate tenetur cum, id consectetur molestias corrupti reprehenderit!
-          </div>
-        </div>
-        <div class="bottom-section">
-          <div class="first-bottom">
-            <div class="likes heffect">
-              <i class="far fa-thumbs-up"></i>
-              <p>Like</p>
-            </div>
-            <div class="comments heffect">
-              <i class="far fa-comment-alt"></i>
-              <p>Comments</p>
-            </div>
-            <div class="share heffect">
-              <i class="fas fa-share"></i>
-              <p>Share</p>
-            </div>
-          </div>
-          <div class="second-bottom">
-            <div class="hide heffect">
-              <i class="fas fa-minus-circle"></i>
-              <p>Hide</p>
-            </div>
-            <div class="report heffect">
-              <i class="fas fa-ban"></i>
-              <p>Report</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-      <section class="trending">
-        <h5 class="cat-name">TRENDING</h5>
-        <ul class="ul-list">
-          <li>General</li>
-          <li>Technology</li>
-          <li>Gaming</li>
-          <li>Sports</li>
-          <li>Travel</li>
-        </ul>
-    </section>
-    </div>
-</body>
-</html>
-
 <router-outlet></router-outlet>
