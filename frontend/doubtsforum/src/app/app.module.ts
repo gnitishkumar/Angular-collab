@@ -12,6 +12,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentTree } from './components/comment-tree/comment-tree.component';
 import { CommentingComponent } from './components/commenting/commenting.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { UpdProfileComponent } from './components/upd-profile/upd-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { CommentingComponent } from './components/commenting/commenting.componen
     PostComponent,
     CommentTree,
     CommentingComponent,
+    ProfileComponent,
+    LoginComponent,
+    SignupComponent,
+    UpdProfileComponent,
   ],
   imports: [
     FormsModule,
