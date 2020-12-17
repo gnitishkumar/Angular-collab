@@ -1,5 +1,5 @@
 <div class="comment-section">
-    <section class="discussion" routerLinkActive="Active" routerLink="commenting">
+    <section class="discussion">
         <div class="top-section">
         <div class="arrangement">
             <div class="user-logo">
@@ -22,8 +22,14 @@
             <span class="blue-box">Sports</span>
         </div>
         <div class="question">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto aliquid repellat iure consequuntur? Blanditiis quibusdam odio, explicabo enim labore obcaecati recusandae voluptate tenetur cum, id consectetur molestias corrupti reprehenderit!
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </div>
+        </div>
+        <div class="bottom-section">
+              <div class="likes heffect">
+                <i class="fas fa-reply"></i>
+                <p>replies<sup>{{comments.length}}</sup></p>
+              </div>
         </div>
     </section>
     <div class="cmt-tree">
@@ -32,6 +38,6 @@
     </div>
     <footer class="comments">
         <textarea id="txt-area" cols="30" rows="3" class="form-control" [(ngModel)]="data"></textarea>
-        <button type="submit" class="btn btn-primary post-comment" (click)="addToComment()">Post</button>
+        <button type="submit" class="btn btn-primary post-comment" (click)="addToComment()">Comment</button>
     </footer>
 </div>

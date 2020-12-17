@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CommentNode {
   text:string ='';
   anwsers:CommentNode[] = [];
-  isOpen:false;
+  isOpen:boolean;
   constructor(text:string){
     this.text = text;
   }
