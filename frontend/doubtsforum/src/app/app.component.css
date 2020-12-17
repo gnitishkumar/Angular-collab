@@ -3,7 +3,20 @@
   padding: 0px ;
   box-sizing: border-box;
 }
-
+.logo h1{
+	font-family:unset;
+	background: -webkit-linear-gradient(120deg,#ff00f7,#00d0ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+	-webkit-text-fill-color:transparent;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
 .main-navbar{
   background-color: #fef3ed;
   display: flex;
@@ -16,10 +29,15 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
-  
+  outline: none;
+
+}
+.logo-name{
+  outline: none;
 }
 .post-doubts,.resolved-doubts,.account{
   padding: 1rem;
+  outline: none;
 }
 .main-color{
   color: #1877f2;
