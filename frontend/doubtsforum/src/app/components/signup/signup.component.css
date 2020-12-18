@@ -1,0 +1,29 @@
+body{
+  /* background:linear-gradient(to right, rgba(156, 163, 219,.5),#d6d8d7); */
+  background:linear-gradient(to right, #93cace,#b1ffd8);
+  color:white;
+
+
+}
+.chek{
+  width:80%;
+  margin: 0 auto;
+}
+.head{
+  /* margin: 1rem auto; */
+  margin-bottom: 50px;
+  margin-left: 45%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: inherit;
+}
+@media(max-width:800px)
+{
+  .head{
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+  }
+  body{
+    height: 120vh;
+  }
+}

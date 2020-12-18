@@ -1,0 +1,34 @@
+<body>
+  <div class="total">
+    <div class="header">
+        <p>Login</p>
+    </div>
+  <div class="feild">
+    <div class>
+        <input type="text" class="user" placeholder="Username"name="username"  [(ngModel)]="this.username">
+    </div>
+
+    <div class>
+        <input type="password" class="pass"placeholder="Password" name="password" [(ngModel)]="this.password" >
+    </div>
+    <span class="adj">
+    <span class="fo">Forgot </span>
+    <span class="for"> Username/Password?</span>
+    </span>
+    <!--[(ngModel)]="this.password"   [(ngModel)]="this.username" *ngIf="this.authService.isLogged"   (click)="onAdding()"   (click)="signup()"-->
+      <!-- <div class="alert alert-success suc" role="alert"   *ngIf="this.authService.isLogged">
+      Login Successfull
+    </div> -->
+    <div>
+        <button  class="but"   (click)="onAdding()">SIGN IN</button>
+    </div>
+    <div class="down">
+    <span  class="dont">Don't have an account?</span>
+    <br>
+    <span class="signup" (click)="signup()" >SIGN UP NOW</span>
+    </div>
+  </div>
+
+  </div>
+
+  </body>

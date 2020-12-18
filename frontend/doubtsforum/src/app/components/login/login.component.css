@@ -1,0 +1,97 @@
+.total{
+  width: 70%;
+   position: relative;
+   left: 15%;
+   /* right:10%; */
+   top:55px;
+   box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
+  filter: drop-shadow(1px 1px 1px black);
+
+}
+ body{
+  background:linear-gradient(to right, #93cace,#b1ffd8);
+  height: 100vh;
+}
+/*.chang{
+
+  /* background-color: black;
+}*/
+.header{
+  background-color: #9ca3db;
+  padding: 25px;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.header p{
+  font-size: 1.8rem;
+}
+.feild{
+  text-align: center;
+  background-color: rgb(242, 242, 242);
+  height: 70vh;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.user,.pass{
+  padding: 9px;
+  border-radius: 28px;
+  background-color: gainsboro;
+  border: none;
+  outline: none;
+  margin-bottom: 16px;
+  margin-top: 30px;
+  width: 400px;
+  padding: 13px;
+}
+.for{
+  color: #57B846;
+}
+.fo{
+  color: gray;
+
+}
+.adj{
+  position: relative;
+  left: 10%;
+}
+.pass::placeholder,.user::placeholder{
+  padding-left: 10px;
+  color:black;
+}
+.but{
+  margin-top: 19px;
+  background-color: #9ca3db;
+  width: 400px;
+  padding: 11px;
+  border-radius: 24px;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+.dont{
+  color: gray;
+}
+.signup{
+  color: #57B846;
+  cursor:pointer;
+}
+.down{
+  margin-top: 20px;
+}
+@media (max-width:700px)
+{ .user,.pass,.but{
+  width: 90%;
+    }
+    .total{
+      width: 85%;
+      left: 5%;
+    }
+    .header p{
+      font-size: 1.4rem;
+    }
+
+}
+

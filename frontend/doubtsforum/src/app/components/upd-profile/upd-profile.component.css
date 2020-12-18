@@ -1,0 +1,32 @@
+
+.chek{
+  width:80%;
+  margin: 0 auto;
+}
+.head{
+  /* margin: 1rem auto; */
+  /* margin-bottom: 50px; */
+  position: relative;
+  top:1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: inherit;
+}
+body{
+  /* background:linear-gradient(to right, rgba(156, 163, 219,.5),#d6d8d7); */
+  background:linear-gradient(to bottom left, #8ed39f,#7dcacf);
+  color:white;
+
+
+}
+@media(max-width:800px)
+{
+  .head{
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+  }
+  body{
+    height: 120vh;
+  }
+}
