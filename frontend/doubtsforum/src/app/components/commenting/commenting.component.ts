@@ -7,8 +7,9 @@ import { CommentNode } from '../comment-tree/comment-tree.component';
   styleUrls: ['./commenting.component.css']
 })
 export class CommentingComponent implements OnInit {
-  comments:Array<CommentNode>=[];
+  comments:CommentNode;
   data;
+  isReplied:boolean=false;
   constructor() { 
   }
 
@@ -18,8 +19,12 @@ export class CommentingComponent implements OnInit {
   {
     if(this.data)
     {
-      this.comments.push(new CommentNode(this.data));
+      this.comments.anwsers.push(new CommentNode(this.data));
     }
     // (<HTMLInputElement>document.getElementById("txt-area")).value="";
+  }
+  togglingReplies()
+  {
+    this.isReplied=!this.isReplied;
   }
 }

@@ -3,8 +3,10 @@ export class CommentNode {
   text:string ='';
   anwsers:CommentNode[] = [];
   isOpen:boolean;
+  isReplied:boolean;
   constructor(text:string){
     this.text = text;
+    this.isReplied=false;
   }
 
   addAnwser(newComment:CommentNode){
@@ -29,7 +31,7 @@ export class CommentNode {
 })
 export class CommentTree implements OnInit {
   @Input()
-  comments:CommentNode[] = [];
+  comments:CommentNode;
   text:string;
   constructor(){
   }
@@ -51,7 +53,11 @@ export class CommentTree implements OnInit {
   }
 
   remove(comment:CommentNode){    
-    let index = this.comments.indexOf(comment);
-    this.comments = this.comments.splice(index,1);        
+    // let index = this.comments.indexOf(comment);
+    // this.comments = this.comments.splice(index,1);        
+  }
+  togglingReplies(comment:CommentNode)
+  {
+    // comment.isReplied=!comment.isReplied;
   }
 }

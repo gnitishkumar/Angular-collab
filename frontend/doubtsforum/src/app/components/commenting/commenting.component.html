@@ -26,9 +26,9 @@
         </div>
         </div>
         <div class="bottom-section">
-              <div class="likes heffect">
+              <div class="likes heffect" (click)="togglingReplies()">
                 <i class="fas fa-reply"></i>
-                <p>replies<sup>{{comments.length}}</sup></p>
+                <p>replies<sup>{{ comments ? comments.anwsers.length :0 }}</sup></p>
               </div>
         </div>
     </section>
