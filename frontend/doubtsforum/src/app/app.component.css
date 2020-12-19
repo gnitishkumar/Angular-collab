@@ -1,7 +1,14 @@
 *{
-  margin: 0px ;
-  padding: 0px ;
+  margin: 0 ;
+  padding: 0 ;
   box-sizing: border-box;
+ 
+}
+.dv{
+  z-index: 100;
+  position: sticky;
+  top:0;
+
 }
 .logo h1{
 	font-family:unset;
@@ -23,6 +30,7 @@
   justify-content: space-between;
   font-size: 1.5rem;
   margin: 0;
+  
 }
 .navbar-first,.navbar-second{
   display: flex;
@@ -41,4 +49,21 @@
 }
 .main-color{
   color: #1877f2;
+}
+
+.account{
+  cursor: pointer;
+}
+
+.dropdown-menu{
+  background-color:#deebf7;
+}
+.dropdown-item{
+  color: cornsilk;
+  padding: 0.25rem;
+  font-weight: 600;
+}
+.prof-link
+{
+  text-decoration: none;
 }

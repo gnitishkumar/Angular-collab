@@ -10,8 +10,9 @@
 .upd{
   float: right;
   position: absolute;
-  top: 5rem;
+  top: 8rem;
   right: 10px;
+
 }
 .prof{
   text-align: center;
@@ -30,9 +31,10 @@
 .left h4{
   margin-top: 7rem;
 }
-body{
+.profile-back{
    /* background-color: #DFF3E4; */
    background:linear-gradient(to right, #93cace,#b1ffd8);
+   height: 100vh;
 }
 
 .wrapper{

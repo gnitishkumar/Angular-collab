@@ -1,12 +1,19 @@
 import { CommentNode } from '../components/comment-tree/comment-tree.component';
 
-export class post{
-    name:string;
+export class discussion{
+    public name:string;
     subtitle:string;
-    time:string;
+    time:Date;
     categories:Array<string>=[];
     question:string;
-    likes:Number;
-    comment:Number;
+    likes:number;
+    comment:number;
     comments:CommentNode[]=[];
+    constructor()
+    {
+       
+        this.likes=0;
+        this.comment=0;
+        this.time=new Date();
+    }
 }

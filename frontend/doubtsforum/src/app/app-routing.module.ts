@@ -14,10 +14,12 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   {path: 'signup',component: SignupComponent },
   {path: 'login',component: LoginComponent },
-  {path: 'profile',component: ProfileComponent },
   {path: 'profile/updprof',component: UpdProfileComponent },
+  {path: 'profile/:userId',component: ProfileComponent },
+  {path: 'profile',component: ProfileComponent },
+  {path: 'profile/:userId/updprof',component: UpdProfileComponent },
   {path:'post',component:PostComponent},
-  {path:'commenting',component:CommentingComponent},
+  {path:'commenting/:postId',component:CommentingComponent},
 
 ];
 
@@ -25,4 +27,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+}

@@ -1,5 +1,5 @@
-
-   <nav class="main-navbar">
+  <div class="dv">
+    <nav class="main-navbar">
       <div class="navbar-first">
 
         <div class="logo">
@@ -17,8 +17,21 @@
           RESOLVED
         </div>
         <div class="account main-color" >
-          ACCOUNT
+          <div *ngIf="loggedIn">
+            <div class="dropdown">
+              <i class="fas fa-user-circle fa-2x userlogo" href="#"   id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              </i>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li class="dropdown-item"><a  class="prof-link" href="#" routerLink="profile" >Profile</a></li>
+                <li class="dropdown-item"><a  class="prof-link" href="#" (click)="logIn()" >logout</a></li>
+              </ul>
+            </div>
+          </div>
+          <div *ngIf="!loggedIn">
+            <span style="outline: none;" routerLinkActive="Active" routerLink="login" (click)="logIn()" >Sign in / Sign up</span>
+          </div>
         </div>
       </div>
    </nav>
+</div>
 <router-outlet></router-outlet>

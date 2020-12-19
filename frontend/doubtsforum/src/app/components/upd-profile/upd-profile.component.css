@@ -17,8 +17,10 @@ body{
   /* background:linear-gradient(to right, rgba(156, 163, 219,.5),#d6d8d7); */
   background:linear-gradient(to bottom left, #8ed39f,#7dcacf);
   color:white;
-
-
+  height: 100vh;
+}
+.form-group{
+  padding: 0.5rem;
 }
 @media(max-width:800px)
 {

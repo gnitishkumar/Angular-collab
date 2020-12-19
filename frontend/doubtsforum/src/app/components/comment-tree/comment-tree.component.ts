@@ -4,9 +4,11 @@ export class CommentNode {
   anwsers:CommentNode[] = [];
   isOpen:boolean;
   isReplied:boolean;
+  time:Date;
   constructor(text:string){
     this.text = text;
-    this.isReplied=false;
+    this.isReplied=true;
+    this.time=new Date();
   }
 
   addAnwser(newComment:CommentNode){
@@ -58,6 +60,6 @@ export class CommentTree implements OnInit {
   }
   togglingReplies(comment:CommentNode)
   {
-    // comment.isReplied=!comment.isReplied;
+    comment.isReplied=!comment.isReplied;
   }
 }

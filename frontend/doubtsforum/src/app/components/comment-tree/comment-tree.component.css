@@ -22,6 +22,7 @@
   width:60%; */
   height:max-content;
   width: max-content;
+  min-width: 30%;
   max-width: 100%;
   box-shadow: 0px 0px 2px 1px rgb(158, 148, 148);
   border-radius: 10px;
@@ -37,6 +38,7 @@
 }
 .top-section{
   font-size: 0.8rem;
+  justify-content: space-between;
   display:flex;
   color: #8a3224;
 }
@@ -45,6 +47,7 @@
   color: #8894a0;
 }
 .question{
+  overflow-wrap: break-word;
   margin: 0;
   padding-left:10px;
   padding-bottom: 10px;
@@ -76,4 +79,8 @@
 
 #mainDiv{
   padding-left: 1.5rem;
+}
+
+.txtReply{
+  width: 30%;
 }

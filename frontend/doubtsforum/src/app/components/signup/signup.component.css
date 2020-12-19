@@ -2,6 +2,7 @@ body{
   /* background:linear-gradient(to right, rgba(156, 163, 219,.5),#d6d8d7); */
   background:linear-gradient(to right, #93cace,#b1ffd8);
   color:white;
+  height: 100vh;
 
 
 }
@@ -17,6 +18,11 @@ body{
   font-weight: bold;
   color: inherit;
 }
+
+.form-group{
+  padding: 0.5rem;
+}
+
 @media(max-width:800px)
 {
   .head{

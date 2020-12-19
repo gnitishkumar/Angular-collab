@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
-import {  } from "module";
-import { post } from '../models/posts';
+import { CommentNode } from '../components/comment-tree/comment-tree.component';
+import { discussion } from '../models/posts';
 @Injectable({
   providedIn: 'root'
 })
 export class PostingdoubtService {
-  questions:post[]=[];
-  constructor() {}
-  addPost(p:post)
+  questions:discussion[]=[];
+  constructor() {
+    for(let i=0;i<20;i++)
+    this.questions.push(new discussion());
+  }
+  addPost(p:discussion)
   {
-    this.questions.push(p);
+    this.questions.unshift(p);
   }
   getPosts()
   {
@@ -18,5 +21,9 @@ export class PostingdoubtService {
   getPost(pos)
   {
     return this.questions[pos];
+  }
+  updatePost(pos:number,post:CommentNode)
+  {
+    this.questions[pos].comments.push(post)
   }
 }
