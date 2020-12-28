@@ -1,4 +1,4 @@
-import { CommentNode } from '../components/comment-tree/comment-tree.component';
+//import { CommentNode } from '../components/comment-tree/comment-tree.component';
 
 export class discussion{
     public name:string;
@@ -8,10 +8,10 @@ export class discussion{
     question:string;
     likes:number;
     comment:number;
-    comments:CommentNode[]=[];
+    comments;
     constructor()
     {
-       
+
         this.likes=0;
         this.comment=0;
         this.time=new Date();

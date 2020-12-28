@@ -13,25 +13,30 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required [(ngModel)]="this.address" name="address" ngModel>
+      <label for="inputAddress">Confirm Password</label>
+      <input type="password" class="form-control" id="inputAddress" placeholder="" required [(ngModel)]="this.confirm_pass" name="confirm_pass" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Profession</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="" required [(ngModel)]="this.profession" name="profession" ngModel>
     </div>
     <div class="form-group">
       <label for="inputAddress2">Email</label>
       <input type="email" class="form-control" id="inputAddress2" placeholder="mail" required [(ngModel)]="this.email" name="email" ngModel>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="inputCity">City</label>
         <input type="text" class="form-control" id="inputCity" required [(ngModel)]="this.city" name="city" ngModel>
+      </div>
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <input type="text" class="form-control" id="inputState" required [(ngModel)]="this.state" name="state" ngModel>
-      </div>
-      <div class="form-group col-md-2">
+      </div> -->
+      <div class="form-group ">
         <label for="inputZip">Mobile</label>
-        <input type="tel" maxlength=10 class="form-control" id="inputZip" required  name="mobile" ngModel>
+        <input type="tel" maxlength=10 class="form-control" id="inputZip" required [(ngModel)]="this.mobile" name="mobile" ngModel>
       </div>
     </div>
     <div class="form-group">

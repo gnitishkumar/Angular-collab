@@ -21,13 +21,13 @@
               <i class="fas fa-user-circle fa-2x userlogo"></i>
             </div>
             <div class="user-name">
-              <span>&nbsp; {{post.name}}</span>
-              <p class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;{{[post.subtitle]}}</p>
+              <span>&nbsp; {{post.username}}</span>
+              <p class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;{{post.profession}}</p>
             </div>
           </div>
             <div class="posted-time">
               <i class="fas fa-history time-color"></i>
-            <span class="time-color">&nbsp;{{post.time}}</span>
+            <span class="time-color">&nbsp;{{post.postedtime}}</span>
             </div>
         </div>
         <hr>
@@ -38,18 +38,18 @@
             </div>
           </div>
           <div class="question">
-            {{post.question}}
+            {{post.description}}
           </div>
         </div>
         <div class="bottom-section">
           <div class="first-bottom">
             <div class="likes heffect" (click)="liked(post)">
               <i class="far fa-thumbs-up"></i>
-              <p>Like<sup>{{post.likes}}</sup></p>
+              <p>Like<sup>{{post.liked}}</sup></p>
             </div>
-            <div class="comments heffect" routerLinkActive="Active" [routerLink]="['/commenting',i]">
+            <div class="comments heffect" routerLinkActive="Active" [routerLink]="['/commenting',post.id]">
               <i class="far fa-comment-alt"></i>
-              <p>Comments<sup>{{post.comments ? post.comments.length:0}}</sup></p>
+              <p>Comments<sup>{{post.comment}}</sup></p>
             </div>
             <div class="share heffect">
               <i class="far fa-share-square"></i>

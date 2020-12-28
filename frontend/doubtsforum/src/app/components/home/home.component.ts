@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { discussion } from 'src/app/models/posts';
 import { PostingdoubtService } from 'src/app/services/postingdoubt.service';
-import { CommentNode } from '../comment-tree/comment-tree.component';
+//import { CommentNode } from '../comment-tree/comment-tree.component';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +9,24 @@ import { CommentNode } from '../comment-tree/comment-tree.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  multipleposts:Array<discussion>=[];
-  constructor(private fetchService:PostingdoubtService) { 
-   
+  multipleposts:any;
+  constructor(private fetchService:PostingdoubtService) {
+
 
   }
   ngOnInit(): void {
-    this.multipleposts=this.fetchService.getPosts();
-    console.log(this.fetchService.getPosts());
+    console.log("intit")
+    this.fetchService.getPosts().subscribe(res=>{
+      this.multipleposts=res;
+      console.log(this.multipleposts);
+    },err=>{
+      console.log(err);
+    });
+
+    //console.log(this.fetchService.getPosts());
+  }
+  ngOnLoad(){
+
   }
   liked(post:discussion)
   {

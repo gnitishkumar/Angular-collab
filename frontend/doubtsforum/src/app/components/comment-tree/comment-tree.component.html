@@ -1,36 +1,36 @@
 <div id="mainDiv" *ngFor="let comment of comments">
-	<section class="discussion">
-		<div class="top-section">
-			<div class="arrangement">
-				<div class="user-logo">
-					<i class="fas fa-user-circle userlogo"></i>
-				</div>
-				<div class="user-name">
-					<span>&nbsp; {{comment.name}}</span>
-				</div>
-			</div>
-			<div class="posted-time">
-				<i class="fas fa-history time-color"></i>
-				<span class="time-color">&nbsp;{{comment.time}}</span>
-			</div>
-		</div>
-		<div class="middle section">
-			<div class="question">
-				{{comment.text}}
-			</div>
-		</div>	
-		<div class="bottom-section">
-			<div class="reply heffect" (click)="togglingReplies(comment)">
-				<i class="fas fa-reply"></i>
-				<p>replies<sup>{{comment.anwsers? comment.anwsers.length:0}}</sup></p>
-			</div>
-		</div>
-	</section>
+  <section class="discussion">
+    <div class="top-section">
+      <div class="arrangement">
+        <div class="user-logo">
+          <i class="fas fa-user-circle userlogo"></i>
+        </div>
+        <div class="user-name">
+          <span>&nbsp; {{comment.username}}</span>
+        </div>
+      </div>
+      <div class="posted-time">
+        <i class="fas fa-history time-color"></i>
+        <span class="time-color">&nbsp;{{comment.postedtime}}</span>
+      </div>
+    </div>
+    <div class="middle section">
+      <div class="question">
+        {{comment.description}}
+      </div>
+    </div>
+    <div class="bottom-section">
+      <div class="reply heffect" (click)="togglingReplies(comment)">
+        <i class="fas fa-reply"></i>
+        <p>replies<sup>{{comment.comments? comment.comments.length:0}}</sup></p>
+      </div>
+    </div>
+  </section>
 	<button (click)="openCommentText(comment)" class="btn btn-primary replied">reply</button>
 	<div *ngIf="comment.isOpen">
-		<textarea [(ngModel)]="text" cols="50" rows="2" class="form-control txtReply"></textarea>
-		<button (click)="addComment(comment)" class="btn btn-primary replied">post</button>
+		<textarea [(ngModel)]="data" cols="50" rows="2" class="form-control txtReply"></textarea>
+		<button (click)="addComment(comment.id)" class="btn btn-primary replied">post</button>
 	</div>
-	<comment-tree *ngIf="comment.isReplied" [comments]="comment.anwsers">
+	<comment-tree *ngIf="comment.isReplied" [comments]="comment.comments">
     </comment-tree>
 </div>

@@ -13,15 +13,22 @@ export class PostComponent implements OnInit {
   p;
   categoryList: string[] = ['General','Technology','Sports','Health','Education','Fashion','Travel'];
   constructor(private fetchService:PostingdoubtService) { }
-  ngOnInit(): void {  
+  ngOnInit(): void {
   }
   verify()
   {
     this.p=new discussion();
-    this.p.name="cristiano";
-    this.p.subtitle="football player";
+    this.p.name=localStorage.getItem('username');
+    this.p.subtitle=this.fetchService.getProfession(this.p.name);
+    console.log(this.p.subtitle)
     this.p.question=(<HTMLInputElement>(document).getElementsByClassName("question")[0]).value;
     this.p.categories=this.categories.value;
-    this.fetchService.addPost(this.p);
+    this.fetchService.addPost(this.p).subscribe(res=>{
+      console.log(res);
+    }
+    ,err=>{
+      console.log(err);
+    }
+    );
   }
 }
