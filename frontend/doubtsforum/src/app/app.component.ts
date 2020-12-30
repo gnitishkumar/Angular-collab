@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   loggedIn:boolean=false;
   title = 'doubtsforum';
+  constructor(private serve:AuthService){}
   logIn()
   {
-    this.loggedIn=!this.loggedIn;
+    return this.serve.isAuthenticated();
+  }
+  logOut()
+  {
+    localStorage.clear();
+    window.location.reload();
   }
 }

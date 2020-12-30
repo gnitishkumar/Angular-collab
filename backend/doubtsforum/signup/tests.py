@@ -32,11 +32,12 @@ def update_user():
 
 def login():
     dat={
-        'username':'siva',
-        'password':'siva@05b4'
+        'username':'Hanu',
+        'password':'1228'
     }
     headers = {'Authorization': 'Token bd82153205ff3f7459b16928e6ae3637c269fcb5'}
     res=requests.post(BASE_URL+'login',dat)
     print(res.status_code)
     print(res.text)
+    
 login()

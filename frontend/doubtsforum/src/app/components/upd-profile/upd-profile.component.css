@@ -1,7 +1,18 @@
-
 .chek{
-  width:80%;
-  margin: 0 auto;
+  width:70%;
+  margin: 5px auto;
+  border:8px solid #f1f1f1;
+  height: 50vh;
+  padding:0.75rem;
+  display: flex;
+  justify-content: center;
+flex-direction:column;
+align-items: center;
+}
+.upda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .head{
   /* margin: 1rem auto; */
@@ -21,6 +32,13 @@ body{
 }
 .form-group{
   padding: 0.5rem;
+  width:20rem;
+}
+.form-check{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media(max-width:800px)
 {
@@ -30,5 +48,24 @@ body{
   }
   body{
     height: 120vh;
+  }
+}
+
+@media(max-width:480px)
+{
+  .form-group{
+    width: 12.5rem;
+  }
+  .chek{
+    height: 55vh;
+  }
+}
+@media(max-width:320px)
+{ .chek{
+  height: 60vh;
+  }
+  .form-group{
+    width: 10rem;
+    padding: 0.8rem;
   }
 }

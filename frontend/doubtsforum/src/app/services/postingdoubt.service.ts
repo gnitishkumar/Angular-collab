@@ -18,10 +18,15 @@ export class PostingdoubtService {
     this.questions.unshift(p);
     return this.http.post(this.url+'postdoubt',{"question":p.question,"categories":p.categories});
   }
-  getPosts()
+  getPosts(usr)
   {
     //return this.questions;
-    return this.http.get(this.url+'home');
+    return this.http.get(this.url+'home/'+usr);
+  }
+  getFilteredPosts(cat,usr)
+  {
+    //return this.questions;
+    return this.http.get(this.url+'filt/'+cat+'/'+usr);
   }
   getPost(pos)
   {
@@ -51,5 +56,17 @@ export class PostingdoubtService {
   getProfession(username)
   {
     return this.http.get(this.url+'profession',{params:{"username":username}})
+  }
+
+  toggleBookmark(id){
+    return this.http.post(this.url+"bookmark",{'id':id});
+  }
+
+  toggleLike(id){
+    return this.http.post(this.url+"like",{'id':id});
+  }
+  getFavourites()
+  {
+    return this.http.get(this.url+"bookmark");
   }
 }

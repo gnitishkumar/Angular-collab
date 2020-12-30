@@ -1,4 +1,8 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { data } from 'jquery';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-upd-profile',
@@ -10,13 +14,13 @@ export class UpdProfileComponent implements OnInit {
   public username:string='';
   public password:string='';
   public email:string='';
-  public state:string='';
+  public profession:string='';
   public address:string='';
   public mobile:number=null;
   public zipcode:number=null;
   public city:string='';
 
-  constructor() { }
+  constructor(private authService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,8 +30,9 @@ export class UpdProfileComponent implements OnInit {
     if(form.valid)
     {
 
-    //   this.authService.updating(form.value.username,form.value.password,form.value.email,form.value.mobile,form.value.state,form.value.address,form.value.city);
-    // this.router.navigate(['/home/profile']);
+    this.authService.updating(form.value.email,form.value.mobile,form.value.profession).subscribe(data=>{
+      this.router.navigate(['/UserProfile']);
+    },err=>{console.log(err)});
     }
   }
 

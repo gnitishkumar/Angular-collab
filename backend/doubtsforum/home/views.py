@@ -1,38 +1,58 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from posting.models import Comments, Posts, Likes, Categories
+from posting.models import Comments, Posts, Likes, Categories,Bookmark
 from django.http import HttpResponse
 import json 
 from django.core.serializers import serialize
 # Create your views here.
+from .activity import posted
 
-def home(request):
+def home(request,usr):
     res=[]
-    print("hello")
-    users=User.objects.all()
-    for i in users:
-        posts=Posts.objects.filter(user=i)
-        for j in posts:
-            data={}
-            data['username']=i.username
-            data['profession']=i.profession
-            data['id']=j.id 
-            data['description']=j.question
-            data['postedtime']=str(j.postedtime)
-            data['liked']=len(Likes.objects.filter(post=j,liked=True))
-            data['comment']=len(Comments.objects.filter(post=j))
-            data['categories']=[]
-            for k in json.loads(serialize('json',Categories.objects.filter(user=i,post=j))):
-                data['categories'].append(k['fields']['category'])
-            if data:
-                res.append(data)
-    return HttpResponse(json.dumps(res),status=200)
+    #print("hello")
+    u=None
+    if usr!="NA":
+        u=User.objects.get(username=usr)
+    posts=Posts.objects.order_by('-postedtime','-time')
+    for j in posts:
+        temp=User.objects.get(username=j.user)
+        data={}
+        data['username']=temp.username
+        data['profession']=temp.profession
+        data['id']=j.id 
+        data['description']=j.question
+        data['postedtime']=posted(j.postedtime,j.time)
+        data['liked']=len(Likes.objects.filter(post=j,liked=True)) 
+        data['like']=False
+        l=0
+        if u:
+            l=len(json.loads(serialize('json',Likes.objects.filter(user=u,post=j))))
+        if l>0 and u:
+            data['like']=json.loads(serialize('json',Likes.objects.filter(user=u,post=j)))[0]['fields']['liked']
+        data['bookmark']=False
+        l=0
+        if u:
+            l=len(json.loads(serialize('json',Bookmark.objects.filter(user=u,post=j))))
+        if l>0 and u:
+            data['bookmark']=json.loads(serialize('json',Bookmark.objects.filter(user=u,post=j)))[0]['fields']['bookmark']
+        data['comment']=len(Comments.objects.filter(post=j,parentComment=0))
+        data['categories']=[]
+        for k in json.loads(serialize('json',Categories.objects.filter(user=temp,post=j))):
+            data['categories'].append(k['fields']['category'])
+        if data:
+            res.append(data)
+    if res:
+        return HttpResponse(json.dumps(res),status=200)
+    else:
+        return HttpResponse(status=204)
 
-def filt(request,category):
+def filt(request,category,usr):
     res=[]
     cat=category
     users=User.objects.all()
     up=[]
+    if usr!='NA':
+        u=User.objects.get(username=usr)
     for k in json.loads(serialize('json',Categories.objects.filter(category=category))):
         up.append(list([k['fields']['user'],k['fields']['post']]))
     for (k,v) in up:
@@ -43,15 +63,30 @@ def filt(request,category):
         data['profession']=i.profession
         data['id']=j.id 
         data['description']=j.question
-        data['postedtime']=str(j.postedtime)
+        data['postedtime']=posted(j.postedtime,j.time)
         data['liked']=len(Likes.objects.filter(post=j,liked=True))
         data['comment']=len(Comments.objects.filter(post=j))
         data['categories']=[]
         for k in json.loads(serialize('json',Categories.objects.filter(user=i,post=j))):
             data['categories'].append(k['fields']['category'])
+        data['like']=False
+        l=0
+        if u:
+            l=len(json.loads(serialize('json',Likes.objects.filter(user=u,post=j))))
+        if l>0 and u:
+            data['like']=json.loads(serialize('json',Likes.objects.filter(user=u,post=j)))[0]['fields']['liked']
+        data['bookmark']=False
+        l=0
+        if u:
+            l=len(json.loads(serialize('json',Bookmark.objects.filter(user=u,post=j))))
+        if l>0 and u:
+            data['bookmark']=json.loads(serialize('json',Bookmark.objects.filter(user=u,post=j)))[0]['fields']['bookmark']
         if data and data['categories']:
             res.append(data)
-    return HttpResponse(json.dumps(res),status=200)
+    if res:
+        return HttpResponse(json.dumps(res),status=200)
+    else:
+        return HttpResponse(status=204)
 
 
 
@@ -74,7 +109,6 @@ def dfs(l,r):
     except:return
 
 
-
 def comments(request,id):
     post=Posts.objects.get(id=id)
     cmts=Comments.objects.filter(post=post)
@@ -86,6 +120,8 @@ def comments(request,id):
         k['user']=User.objects.get(id=k['user']).username
         k['id']=i['pk']
         k['comments']=[]
+        k['isReplied']=False
+        k['postedtime']=posted(post.postedtime,post.time)
         if i['fields']['parentComment']==0:
             directcomment.append(k)
         else:
@@ -99,9 +135,11 @@ def comments(request,id):
 
     for i in directcomment:
         r=i
-        r['comments']=indirectcomment[i['id']]
-        for j in range(len(r['comments'])):
-            dfs(indirectcomment,r['comments'][j])
+        try:
+            r['comments']=indirectcomment[i['id']]
+            for j in range(len(r['comments'])):
+                dfs(indirectcomment,r['comments'][j])
+        except:pass
         res.append(r)
+        
     return HttpResponse(json.dumps(res),status=200)
-

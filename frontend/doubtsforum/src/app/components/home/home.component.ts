@@ -16,21 +16,54 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log("intit")
-    this.fetchService.getPosts().subscribe(res=>{
-      this.multipleposts=res;
-      console.log(this.multipleposts);
-    },err=>{
-      console.log(err);
-    });
+    this.add();
 
     //console.log(this.fetchService.getPosts());
   }
   ngOnLoad(){
 
   }
-  liked(post:discussion)
+  bookmarked(id)
   {
-    post.likes+=1;
-  }
+    this.fetchService.toggleBookmark(id).subscribe(data=>
+      {
+        this.add();
+      },err=>console.log(err));
 
+  }
+  liked(id)
+  {
+    this.fetchService.toggleLike(id).subscribe(data=>
+      {
+        this.add();
+      },err=>console.log(err));
+
+  }
+  filter(cat)
+  {
+    let usr="NA";
+    if (localStorage.getItem('username')){
+      usr=localStorage.getItem('username');
+    }
+    this.fetchService.getFilteredPosts(cat,usr).subscribe(res=>{
+      this.multipleposts=res;
+      console.log(this.multipleposts);
+    },err=>{
+      console.log(err);
+    });
+
+  }
+  add()
+  {
+    let usr="NA";
+    if (localStorage.getItem('username')){
+      usr=localStorage.getItem('username');
+    }
+    this.fetchService.getPosts(usr).subscribe(res=>{
+      this.multipleposts=res;
+      console.log(this.multipleposts);
+    },err=>{
+      console.log(err);
+    });
+  }
 }

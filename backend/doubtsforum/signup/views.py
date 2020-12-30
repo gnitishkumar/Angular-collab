@@ -14,30 +14,26 @@ from rest_framework.viewsets import ModelViewSet
 from django.core.serializers import serialize
 from django.http import JsonResponse
 from rest_framework.views import APIView
+from django.views.decorators.csrf import csrf_exempt
+from posting.models import Posts
 # Create your views here.
- 
-class UserCrud(View):
-     
-    def get_user(self,username):
-        try:
-            return User.objects.get(username=username)
-        except:
-            return None
-    def get(self,request,*args,**kwargs):pass
 
-    def post(self,request,*args,**kwargs):
-        data=json.loads(request.body)
-        try:
-            res=User.objects.create_user(username=data['username'],password=data['password'],profession=data['profession'],email=data['email'],mobile=data['mobile'])
-            res.save()
-            return HttpResponse("suceess",status=200)
-        except:
-            return HttpResponse("UserAlreadyExists",status=409)
-        # return HttpResponse(json.dumps(res.errors),status=409)
+def register(request):
+    data=json.loads(request.body)
+    print(data)
+    try:
+        res=User.objects.create_user(username=data['username'],password=data['password'],profession=data['profession'],email=data['email'],mobile=data['mobile'])
+        res.save()
+        cont={"text":"success"}
+        return JsonResponse(cont,status=200)
+    except:return HttpResponse(status=409)
 
+class update(APIView):
+    permission_classes=(IsAuthenticated,)
+    
     def put(self,request,*args,**kwargs):
+        user=User.objects.get(username=request.user)
         data=json.loads(request.body)
-        user=self.get_user(data['username'])
         original={
             'username':user.username,
             'password':user.password,
@@ -49,10 +45,44 @@ class UserCrud(View):
         res=UserForm(original,instance=user)
         if res.is_valid():
             res.save(commit=True)
-            return HttpResponse("updatedsucessfully", status=200)
+            return HttpResponse(status=200)
         return HttpResponse(json.dumps(res.errors),status=409)
 
-    def delete(self,request,*args,**kwargs):pass
+class UserCrud(View):   
+    def get_user(self,username):
+        try:
+            return User.objects.get(username=username)
+        except:
+            return None
+    def get(self,request,username,*args,**kwargs):
+        user=self.get_user(username)
+        original={
+            'username':user.username,
+            'profession':user.profession,
+            'email':user.email,
+            'mobile':user.mobile,
+            'last_login':str(user.last_login.strftime("%c")),
+            'posts':len(Posts.objects.filter(user=user))
+        }
+        return HttpResponse(json.dumps(original),status=200)
+    #@csrf_exempt
+    def post(self,request,*args,**kwargs):
+        data=json.loads(request.body)
+        print(data)
+        try:
+            res=User.objects.create_user(username=data['username'],password=data['password'],profession=data['profession'],email=data['email'],mobile=data['mobile'])
+            res.save()
+            cont={"text":"success"}
+            return JsonResponse(cont,status=200)
+        except:return HttpResponse(status=409)
+        #return HttpResponse(json.dumps(res.errors),status=409)
+
+    def put(self,request,*args,**kwargs):
+        data=json.loads(request.body)
+        user=self.get_user(data['username'])
+        
+
+    def delete(self,request,args,*kwargs):pass
 
 
 def login(request):
@@ -61,17 +91,16 @@ def login(request):
     #user=User.objects.get(username=data['username'])
     if user:
         token=Token.objects.get_or_create(user=user)
+        token='Token '+token[0]
         dat={
             'username':data['username'],
             'password':data['password'],
-            'token':str(token[0])
+            'Authorization':token,
+            'text':'success'
         }
         # json_data=serialize('json',[dat,])
-        return JsonResponse(dat,status="200")
-    return HttpResponse("UnauthorizedUser",status=401)
+        return JsonResponse(dat,status=200)
+    print("Hello")
+    return HttpResponse(status=401)
 
-class display(APIView):
-    permission_classes = (IsAuthenticated,)   
-    def get(self,request,*args,**kwargs):
-        print(request.user)
-        return HttpResponse("hello")
+ 

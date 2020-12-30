@@ -1,12 +1,14 @@
-<div class="profile-back">
-	<button class="btn btn-primary upd" routerLinkActive="Active" routerLink="updprof">Update Profile</button>
+<div class="profile-back" >
+	<button *ngIf="! not_user" class="btn btn-primary upd" routerLinkActive="Active" routerLink="updprof">Update Profile</button>
 	<h1 class="prof">Profile</h1>
 <div class="wrapper">
 
     <div class="left">
-      <i class="fas fa-user fa-7x imgg"></i>
-        <h5>User</h5><p class="usern">hellooo</p>
-         <h4><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Location</h4>
+      <div class="prof-left">
+          <i class="fas fa-user fa-7x imgg"></i>
+          <h5>user</h5><p class="usern">{{username}}</p>
+          <h4><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;India</h4>
+      </div>
     </div>
     <div class="right">
         <div class="info">
@@ -14,23 +16,23 @@
             <div class="info_data">
                  <div class="data">
                     <h4>Email</h4>
-                    <p>abcdef@gmail.com</p>
+                    <p>{{email}}</p>
                  </div>
-                 <div class="data">
+                 <div class="data" *ngIf="! not_user">
                    <h4>Mobile</h4>
-                    <p>9876543213</p>
+                    <p>{{mobile}}</p>
                  </div>
                  <div class="data">
-                  <h4>State</h4>
-                  <p>Telangana</p>
+                  <h4>Profession</h4>
+                  <p>{{profession}}</p>
                  </div>
                <div class="data">
-                <h4>Address</h4>
-                <p>Address</p>
+                <h4>Posts</h4>
+                <p>{{posts}} posted</p>
                </div>
                <div class="data">
-                <h4>City</h4>
-                <p>Hyderabad</p>
+                <h4>Last Login</h4>
+                <p>{{last_login}}</p>
              </div>
             </div>
         </div>

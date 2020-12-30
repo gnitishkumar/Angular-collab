@@ -18,6 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UpdProfileComponent } from './components/upd-profile/upd-profile.component';
+import { FavouriteComponent } from './components/favourite/favourite.component';
 //import {AuthheaderInterceptor}
 
 
@@ -33,6 +34,7 @@ import { UpdProfileComponent } from './components/upd-profile/upd-profile.compon
     LoginComponent,
     SignupComponent,
     UpdProfileComponent,
+    FavouriteComponent,
   ],
   imports: [
     FormsModule,

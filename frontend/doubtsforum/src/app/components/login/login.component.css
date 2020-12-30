@@ -1,12 +1,18 @@
 .total{
-  width: 70%;
+  width: 50%;
    position: relative;
-   left: 15%;
    /* right:10%; */
-   top:55px;
+   top: 3rem;
    box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
   filter: drop-shadow(1px 1px 1px black);
-
+  height: auto;
+ 
+}
+.tot-par{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
  body{
   background:linear-gradient(to right, #93cace,#b1ffd8);
@@ -23,6 +29,7 @@
   text-align: center;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+ 
 }
 .header p{
   font-size: 1.8rem;
@@ -52,10 +59,6 @@
   color: gray;
 
 }
-.adj{
-  position: relative;
-  left: 10%;
-}
 .pass::placeholder,.user::placeholder{
   padding-left: 10px;
   color:black;
@@ -79,19 +82,25 @@
   cursor:pointer;
 }
 .down{
-  margin-top: 20px;
+ 
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%,50%);
 }
-@media (max-width:700px)
+ 
+@media (max-width:830px)
 { .user,.pass,.but{
-  width: 90%;
+  width: 80%;
     }
     .total{
-      width: 85%;
-      left: 5%;
+      width: 70%;
     }
     .header p{
       font-size: 1.4rem;
     }
-
+    .feild{
+      height: 55vh;
+    }
 }
 

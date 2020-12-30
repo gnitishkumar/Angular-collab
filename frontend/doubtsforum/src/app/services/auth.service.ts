@@ -8,8 +8,8 @@ export class AuthService {
 
 url="http://localhost:8000/";
 
- header;
- username;
+  header;
+  username;
 
   constructor(private http:HttpClient) {
 
@@ -20,10 +20,24 @@ url="http://localhost:8000/";
   }
 
   login(username,password)
-  {  this.username=username;
-    return this.http.post(this.url+'login',{'username':username,'password':password});
+  {  
+    this.header={ 'content-type': 'application/json'} 
+    const body=JSON.stringify({'username':username+"",'password':password+""});
+    return this.http.post(this.url+'login', body,{headers:this.header});
   }
-
-
-
+  isAuthenticated()
+  {
+    if(localStorage.getItem('token'))
+    return true;
+    return false;
+  }
+  getProfile(usr)
+  {
+    console.log(usr);
+    return this.http.get(this.url+"profile/"+usr);
+  }
+  updating(mail,mobile,profession)
+  {
+    return this.http.put(this.url+"update",{'email':mail,'mobile':mobile,'profession':profession});
+  }
 }

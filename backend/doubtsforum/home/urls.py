@@ -4,7 +4,7 @@ from .views import home,filt,comments
   
 
 urlpatterns = [
-    path('home',home),
-    path('filt/<category>',filt),
+    path('home/<usr>',home),
+    path('filt/<category>/<usr>',filt),
     path('comments/<id>',comments)
 ]

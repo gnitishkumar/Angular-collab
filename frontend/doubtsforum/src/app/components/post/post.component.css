@@ -8,20 +8,24 @@ h1{
   color: blueviolet;
   border-bottom:1px solid antiquewhite;
 }
-  .post-form{
-    position: relative;
-    left: 30%;
-    top:10%;
-  }
-.category{
+.pp{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.post-form{
+  width: 60%;
+}
+/* .category{
   width: 20%;
   top: 1rem;
   left: 5px;
-}
+} */
 .question{
   margin-top:1rem;
-  width:50%;
-  margin-left: 5px;
+  width:100%;
+  /* margin-left: 5px; */
 }
 
 .post-btn
@@ -34,3 +38,4 @@ h1{
 .post-btn:hover{
   background-color: rgb(145, 17, 236);
 }
+ 

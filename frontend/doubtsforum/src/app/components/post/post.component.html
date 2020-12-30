@@ -1,8 +1,9 @@
 <h1>Post Your Doubt</h1>
 <p></p>
+<div class="pp">
 <div class="post-form">
 <mat-form-field  class="category" appearance="fill">
-  <mat-label *ngIf="!categories.value || categories.value.length==0">choose categories</mat-label>
+  <mat-label *ngIf="!categories.value || categories.value.length==0" >choose categories</mat-label>
   <mat-select [formControl]="categories" multiple>
     <mat-option *ngFor="let category of categoryList" [value]="category">{{category}}</mat-option>
   </mat-select>
@@ -10,4 +11,5 @@
 <textarea class="form-control question" cols="30" rows="5" placeholder="Write your question here...!"></textarea>
 
 <button type="submit" class="btn btn-primary post-btn" (click)="verify()" >Post</button>
+</div>
 </div>

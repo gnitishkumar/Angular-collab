@@ -1,4 +1,5 @@
 <body>
+  <div class="tot-par">
   <div class="total">
     <div class="header">
         <p>Login</p>
@@ -11,10 +12,7 @@
     <div class>
         <input type="password" class="pass"placeholder="Password" name="password" [(ngModel)]="this.password" >
     </div>
-    <span class="adj">
-    <span class="fo">Forgot </span>
-    <span class="for"> Username/Password?</span>
-    </span>
+    
     <!--[(ngModel)]="this.password"   [(ngModel)]="this.username" *ngIf="this.authService.isLogged"   (click)="onAdding()"   (click)="signup()"-->
       <!-- <div class="alert alert-success suc" role="alert"   *ngIf="this.authService.isLogged">
       Login Successfull
@@ -30,5 +28,5 @@
   </div>
 
   </div>
-
+  </div>
   </body>

@@ -2,7 +2,7 @@
     <nav class="main-navbar">
       <div class="navbar-first">
 
-        <div class="logo">
+        <div class="logo" routerLinkActive='Active' routerLink=''>
           <h1>DF</h1>
         </div>
         <div class="logo-name main-color" routerLinkActive='Active' routerLink=''>
@@ -13,22 +13,24 @@
         <div class="post-doubts main-color" routerLinkActive='Active' routerLink='post'>
           POST
         </div>
-        <div class="resolved-doubts main-color">
-          RESOLVED
+        <div class="resolved-doubts main-color" *ngIf="logIn()" routerLinkActive='Active' routerLink='favourites'>
+          FAVOURITES
         </div>
         <div class="account main-color" >
-          <div *ngIf="loggedIn">
+          <div *ngIf="logIn()">
             <div class="dropdown">
               <i class="fas fa-user-circle fa-2x userlogo" href="#"   id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
               </i>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li class="dropdown-item"><a  class="prof-link" href="#" routerLink="profile" >Profile</a></li>
-                <li class="dropdown-item"><a  class="prof-link" href="#" (click)="logIn()" >logout</a></li>
+                <li class="dropdown-item"><a  class="prof-link" routerLink="UserProfile" >Profile</a></li>
+                <li class="dropdown-item"><a  class="prof-link" href="#" (click)="logOut()" >logout</a></li>
               </ul>
             </div>
           </div>
-          <div *ngIf="!loggedIn">
-            <span style="outline: none;" routerLinkActive="Active" routerLink="login" (click)="logIn()" >Sign in / Sign up</span>
+          <div *ngIf="!logIn()">
+            <span style="outline: none;" routerLinkActive="Active" routerLink="login">LOGIN</span>
+            &nbsp;&nbsp;
+            <span style="outline: none;" routerLinkActive="Active" routerLink="signup">REGISTER</span>
           </div>
         </div>
       </div>

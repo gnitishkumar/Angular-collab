@@ -9,6 +9,9 @@
 }
 .posted-time{
   padding-right:.45rem;
+  position: absolute;
+  top: 1%;
+  right: 1%;
 }
 .discussion{
     /* border:0.5px solid black; */
@@ -65,7 +68,11 @@
     font-size: 1.25rem;
     line-height: 2rem;
   }
-
+  .user-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
   .comment-section
   {
       min-height: 93vh;
@@ -80,7 +87,7 @@
       margin: 0.5rem;
       bottom: 0;
       width:100%;
-      position: relative;
+      
 
   }
 
@@ -108,3 +115,56 @@
   .likes{
     cursor: pointer;
   }
+
+ 
+@media(max-width:600px)
+{
+  .question{
+    overflow-wrap: normal;
+  }
+  .top-section{
+    max-width: max-content;
+    font-size: 0.8rem;
+  }
+  .question{
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+    padding: 0.2rem;
+  }
+  .bottom-section{
+    padding: 0.5rem;
+    font-size: 0.65rem;
+  }
+  .middle{
+    font-size:0.7rem;
+  }
+  .blue-box{
+    padding: 0.15rem;
+  }
+  .time-color{
+    font-size: 0.6rem;
+  }
+  .category-name{
+    margin:0.6rem
+  }
+  .subtitle{
+    font-size: 0.5rem;
+  }
+  .arrangement{
+    padding: 0.25rem;
+  }
+  .userlogo{
+    font-size: 0.9rem;
+  }
+  .comments{
+    flex-direction: column;
+  }
+  .form-control{
+    margin-bottom: 0.5rem;
+    min-width: 15rem;
+  }
+   .post-comment{
+     font-size: .75rem;
+   }
+}

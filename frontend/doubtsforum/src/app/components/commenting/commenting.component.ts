@@ -37,9 +37,11 @@ export class CommentingComponent implements OnInit {
   addToComment()
   {
     if(true)
-     {    this.fetchService.addComment(this.data,this.pos).subscribe(res=>{
-          console.log(res)
-          window.location.reload();
+     {    
+          this.fetchService.addComment(this.data,this.pos).subscribe(res=>{
+          console.log(res);
+          this.load();
+          this.data="";
        // this.router.navigate(['commenting/'+this.pos]);
         // this.fetchService.getPostComments(this.pos).subscribe(res=>{
         //   this.MainComments=res;
@@ -50,11 +52,17 @@ export class CommentingComponent implements OnInit {
         },err=>{
           console.log(err)
         });
-
-
-
     }
 
+  }
+
+  load(){
+      console.log("hello");
+      this.fetchService.getPostComments(this.pos).subscribe(res=>{
+      this.MainComments=res;
+      },err=>{
+      console.log(err)
+    });
   }
   togglingReplies()
   {
