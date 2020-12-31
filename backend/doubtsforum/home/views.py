@@ -25,6 +25,11 @@ def home(request,usr):
         data['liked']=len(Likes.objects.filter(post=j,liked=True)) 
         data['like']=False
         l=0
+        data['isComment']=False
+        if u:
+            l=len(json.loads(serialize('json',Comments.objects.filter(user=u,post=j))))
+        if l>0:
+            data['isComment']=True
         if u:
             l=len(json.loads(serialize('json',Likes.objects.filter(user=u,post=j))))
         if l>0 and u:
@@ -48,6 +53,7 @@ def home(request,usr):
 
 def filt(request,category,usr):
     res=[]
+    u=None
     cat=category
     users=User.objects.all()
     up=[]
@@ -71,6 +77,11 @@ def filt(request,category,usr):
             data['categories'].append(k['fields']['category'])
         data['like']=False
         l=0
+        data['isComment']=False
+        if u:
+            l=len(json.loads(serialize('json',Comments.objects.filter(user=u,post=j))))
+        if l>0:
+            data['isComment']=True
         if u:
             l=len(json.loads(serialize('json',Likes.objects.filter(user=u,post=j))))
         if l>0 and u:

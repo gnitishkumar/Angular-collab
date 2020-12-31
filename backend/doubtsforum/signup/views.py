@@ -20,7 +20,7 @@ from posting.models import Posts
 
 def register(request):
     data=json.loads(request.body)
-    print(data)
+   
     try:
         res=User.objects.create_user(username=data['username'],password=data['password'],profession=data['profession'],email=data['email'],mobile=data['mobile'])
         res.save()
@@ -68,7 +68,7 @@ class UserCrud(View):
     #@csrf_exempt
     def post(self,request,*args,**kwargs):
         data=json.loads(request.body)
-        print(data)
+     
         try:
             res=User.objects.create_user(username=data['username'],password=data['password'],profession=data['profession'],email=data['email'],mobile=data['mobile'])
             res.save()
@@ -85,22 +85,22 @@ class UserCrud(View):
     def delete(self,request,args,*kwargs):pass
 
 
-def login(request):
-    data=json.loads(request.body)
-    user=authenticate(username=data['username'],password=data['password'])
-    #user=User.objects.get(username=data['username'])
-    if user:
-        token=Token.objects.get_or_create(user=user)
-        token='Token '+token[0]
-        dat={
-            'username':data['username'],
-            'password':data['password'],
-            'Authorization':token,
-            'text':'success'
-        }
-        # json_data=serialize('json',[dat,])
-        return JsonResponse(dat,status=200)
-    print("Hello")
-    return HttpResponse(status=401)
+# def login(request):
+#     data=json.loads(request.body)
+#     user=authenticate(username=data['username'],password=data['password'])
+#     #user=User.objects.get(username=data['username'])
+#     if user:
+#         token=Token.objects.get_or_create(user=user)
+#         token='Token '+token[0]
+#         dat={
+#             'username':data['username'],
+#             'password':data['password'],
+#             'Authorization':token,
+#             'text':'success'
+#         }
+#         # json_data=serialize('json',[dat,])
+#         return JsonResponse(dat,status=200)
+ 
+#     return HttpResponse(status=401)
 
  

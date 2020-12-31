@@ -40,10 +40,10 @@ class PostsView(APIView,CatageroiesView):
         if res.errors:
             return HttpResponse(res.errors,status=400)
         res.save(commit=True)
-        print(res.fields)
+       
         self.add(user,res.instance,data['categories'])
         a=Categories.objects.filter(post=res.instance)
-        print(a)
+      
         return HttpResponse(status=200)
 
     def delete(self,request,*args,**kwargs):pass
@@ -122,9 +122,11 @@ class BookmarkView(APIView):
         res=[]
         user=User.objects.get(username=request.user)
         bposts=[i['fields'] for i in json.loads(serialize('json',Bookmark.objects.filter(user=user,bookmark=True)))]
-        for i in bposts:
+        for i in bposts:    
             data={}
+           
             j=Posts.objects.get(id=i['post'])
+            user=User.objects.get(username=j.user)
             data['username']=user.username
             data['bookmark']=True
             data['profession']=user.profession
