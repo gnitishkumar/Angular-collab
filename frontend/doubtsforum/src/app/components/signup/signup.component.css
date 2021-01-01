@@ -2,7 +2,7 @@ body{
   /* background:linear-gradient(to right, rgba(156, 163, 219,.5),#d6d8d7); */
   background:linear-gradient(to right, #93cace,#b1ffd8);
   color:white;
-  height: 100vh;
+  height: 150vh;
 
 
 }
@@ -13,7 +13,7 @@ body{
 .head{
   /* margin: 1rem auto; */
   margin-bottom: 50px;
-  margin-left: 45%;
+  text-align: center;
   font-size: 2rem;
   font-weight: bold;
   color: inherit;
@@ -30,6 +30,6 @@ body{
     font-size: 1.5rem;
   }
   body{
-    height: 120vh;
+    height: 200vh;
   }
 }

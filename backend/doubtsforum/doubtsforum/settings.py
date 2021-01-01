@@ -14,6 +14,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+# print(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '44*p62x#3&j2w*z!6%o*i87#3y_t^3e9!5dx3l3(e6_r&z+=z$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -101,8 +103,12 @@ WSGI_APPLICATION = 'doubtsforum.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'doubtsforum',
+        'USER':'postgres',
+        'PASSWORD':'1228',
+        'HOST':'localhost',
+        'PORT':'5433'
     }
 }
 

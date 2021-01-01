@@ -91,11 +91,25 @@
     left: 4%;
     top:50px;
     width:100%;*/
-    min-width: 16rem;
+    min-width: 15rem;
     height:max-content;
     box-shadow: 0px 0px 2px 1px rgb(158, 148, 148);
     border-radius: 20px;
     margin-top: 1rem;
+    background-color:white;
+/*
+B2DDF7
+81D6E3
+BFDBF7
+CCFFCB
+CEFDFF
+F7FFDD
+CEDFD9
+F1F7ED
+F3EFF5
+BEE7B8
+    
+*/
   }
   .discussion:first-child{
     margin-top: 2rem;
@@ -104,17 +118,20 @@
     margin-bottom: 2rem;
   }
   .userlogo{
-    color: #2c343a;
+    color:white;
   }
   .disc-thread{
     display: flex;
     flex-direction: column;
   }
   .top-section{
-    font-size: 1.5rem;
+    font-size: 1.5rem;  
+
     display:flex;
     justify-content: space-between;
-    color: #8a3224;
+    color: white;
+    background-color: #0c406d;
+    border-radius: 20px 20px 0 0;
   }
   .time-color{
     font-size: 1rem;
@@ -152,6 +169,8 @@
     overflow-wrap: break-word;
     font-size: 1.25rem;
     line-height: 2rem;
+    color: rgb(71, 71, 71);
+    letter-spacing: 1px;
   }
   .bottom-section{
     display: flex;
@@ -205,6 +224,11 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.icon-cl{
+  color:rgb(81, 204, 241);
+}
+ 
 @media(max-width:1670px)
 {
   .arrange{

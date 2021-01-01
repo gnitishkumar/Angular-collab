@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from rest_framework.views import APIView
 from .forms import PostsForm,CategoriesForm,LikesForm,CommentsForm,BookmarkForm
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
 import datetime
 from rest_framework.permissions import IsAuthenticated
 import json
@@ -10,7 +10,7 @@ from django.http import HttpResponse
 from .models import Posts,Categories,Likes,Comments,Bookmark
 from django.core.serializers import serialize
 from home.activity import posted
-# Create your views here.
+# Create your views here 
 
 class CatageroiesView():
     def add(self,user,post,cat):

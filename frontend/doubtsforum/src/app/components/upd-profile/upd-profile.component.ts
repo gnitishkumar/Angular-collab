@@ -23,17 +23,27 @@ export class UpdProfileComponent implements OnInit {
   constructor(private authService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.isAuthenticated())
+    this.router.navigate(['']);
+    else
+    {
+      this.authService.getProfile(localStorage.getItem('username')).subscribe(data=>
+        {
+          this.profession=data['profession'];
+          this.mobile=data['mobile'];
+          this.email=data['email'];
+        });
+    }
   }
 
   onUpd(form)
   {
-    if(form.valid)
-    {
-
+     
     this.authService.updating(form.value.email,form.value.mobile,form.value.profession).subscribe(data=>{
       this.router.navigate(['/UserProfile']);
-    },err=>{console.log(err)});
-    }
+    }, err=>{
+      window.alert('enter valid details');
+    });
   }
 
 }

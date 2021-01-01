@@ -25,7 +25,7 @@
   margin: 0;
 }
 .main-navbar{
-  background-color: #cfdee8;
+  background-color: #000203;
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
@@ -72,6 +72,26 @@
   cursor: pointer;
   outline: none;
 }
+
+
+.back-top{
+  color:rgb(107, 102, 102);
+  cursor: pointer;
+  outline: none;
+  position: fixed;
+  bottom: 8%;
+  right: 4%;
+}
+.back-top:hover{
+  color:black
+}
+#myBtn{
+  display: none;
+}
+
+
+
+
 @media(max-width:550px){
   .logo-name{
     display: none;
@@ -81,5 +101,8 @@
   }
   .account{
     font-size: 0.75rem;
+  }
+  .back-top{
+    font-size: 1.25rem;
   }
 }

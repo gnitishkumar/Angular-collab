@@ -6,7 +6,6 @@
    box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
   filter: drop-shadow(1px 1px 1px black);
   height: auto;
- 
 }
 .tot-par{
   display: flex;
@@ -17,9 +16,8 @@
  body{
   background:linear-gradient(to right, #93cace,#b1ffd8);
   height: 100vh;
-}
+ }
 /*.chang{
-
   /* background-color: black;
 }*/
 .header{
@@ -33,6 +31,7 @@
 }
 .header p{
   font-size: 1.8rem;
+  font-weight: 500;
 }
 .feild{
   text-align: center;
@@ -83,8 +82,8 @@
 }
 .down{
  
-  position: absolute;
-  bottom: 10%;
+  position: relative;
+  bottom: 3%;
   left: 50%;
   transform: translate(-50%,50%);
 }
@@ -102,5 +101,26 @@
     .feild{
       height: 55vh;
     }
+    
+}
+@media(max-width:500px){
+  .feild{
+    background:none;
+  }
+  .header{
+    background:none;
+  }
+  .total{
+    box-shadow: none;
+    filter:none;
+  }
+  body{
+    height: 150vh;
+  }
+  .header {
+    border:5px solid white;
+    
+    display: block;
+  }
 }
 

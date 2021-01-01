@@ -1,59 +1,59 @@
-<div  class="first" *ngIf="multipleposts==null">
-    You haven't bookmarked !!
-</div>
 <div class="fav">
     <section class="discussion" *ngFor="let post of multipleposts;index as i">
         <div class="top-section">
-        <div class="arrangement" routerLinkActive="Active" [routerLink]="['/profile',post.username]">
-            <div class="user-logo">
-            <i class="fas fa-user-circle fa-2x userlogo"></i>
+            <div class="arrangement" routerLinkActive="Active" [routerLink]="['/profile',post.username]">
+                <div class="user-logo">
+                    <i class="fas fa-user-circle fa-2x userlogo"></i>
+                </div>
+                <div class="user-name">
+                    <span>&nbsp; {{post.username}}</span>
+                    <p class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;{{post.profession}}</p>
+                </div>
             </div>
-            <div class="user-name">
-            <span>&nbsp; {{post.username}}</span>
-            <p class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;{{post.profession}}</p>
-            </div>
-        </div>
             <div class="posted-time">
-            <i class="fas fa-history time-color"></i>
-            <span class="time-color">&nbsp;{{post.postedtime}}</span>
+                <i class="fas fa-history time-color"></i>
+                <span class="time-color">&nbsp;{{post.postedtime}}</span>
             </div>
         </div>
         <hr>
         <div class="middle section">
-        <div class="category-name">
-            <div *ngFor="let category of post.categories">
-            <span class="blue-box">{{category}}</span>&nbsp;&nbsp;
+            <div class="category-name">
+                <div *ngFor="let category of post.categories">
+                    <span class="blue-box">{{category}}</span>&nbsp;&nbsp;
+                </div>
             </div>
-        </div>
-        <div class="question">
-            {{post.description}}
-        </div>
+            <div class="question">
+                {{post.description}}
+            </div>
         </div>
         <div class="bottom-section">
-        <div class="first-bottom">
-            <div class="likes heffect" (click)="liked(post.id)">
-            <div *ngIf="post.like">
-                <i class="fas fa-thumbs-up lk-color"></i>
-            </div>
-            <div *ngIf="!post.like">
-                <i class="far fa-thumbs-up"></i>
-            </div>
-            <p>Like<sup>{{post.liked}}</sup></p>
+            <div class="first-bottom">
+                <div class="likes heffect" (click)="liked(post.id)">
+                    <div *ngIf="post.like">
+                        <i class="fas fa-thumbs-up lk-color"></i>
+                    </div>
+                    <div *ngIf="!post.like">
+                        <i class="far fa-thumbs-up"></i>
+                    </div>
+                    <p>Like<sup>{{post.liked}}</sup></p>
             </div>
             <div class="comments heffect" routerLinkActive="Active" [routerLink]="['/commenting',post.id]">
-            <i class="far fa-comment-alt cmt-icon"></i>
-            <p>Comments<sup>{{post.comment}}</sup></p>
+                <i class="far fa-comment-alt cmt-icon"></i>
+                <p>Comments<sup>{{post.comment}}</sup></p>
             </div>
             <div class="share heffect" (click)="bookmarked(post.id)">
-            <div *ngIf="post.bookmark">
-                <i class="fas fa-star bk-color"></i>
-            </div>
-            <div *ngIf="!post.bookmark">
-                <i class="far fa-star"></i>
-            </div>
-            <p>bookmark</p>
+                <div *ngIf="post.bookmark">
+                    <i class="fas fa-star bk-color"></i>
+                </div>
+                <div *ngIf="!post.bookmark">
+                    <i class="far fa-star"></i>
+                </div>
+                <p>bookmark</p>
             </div>
         </div>
-        </div>
-    </section>
+    </div>
+</section>
+</div>
+<div  class="first" *ngIf="timed">
+    You haven't bookmarked !!
 </div>

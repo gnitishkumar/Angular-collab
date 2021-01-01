@@ -17,6 +17,7 @@ from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from posting.models import Posts
 # Create your views here.
+import datetime
 
 def register(request):
     data=json.loads(request.body)
@@ -85,22 +86,21 @@ class UserCrud(View):
     def delete(self,request,args,*kwargs):pass
 
 
-# def login(request):
-#     data=json.loads(request.body)
-#     user=authenticate(username=data['username'],password=data['password'])
-#     #user=User.objects.get(username=data['username'])
-#     if user:
-#         token=Token.objects.get_or_create(user=user)
-#         token='Token '+token[0]
-#         dat={
-#             'username':data['username'],
-#             'password':data['password'],
-#             'Authorization':token,
-#             'text':'success'
-#         }
-#         # json_data=serialize('json',[dat,])
-#         return JsonResponse(dat,status=200)
+def login(request):
+    data=json.loads(request.body)
+    user=authenticate(username=data['username'],password=data['password'])
+    #user=User.objects.get(username=data['username'])
+    if user:
+        token=Token.objects.get_or_create(user=user)
+        token=token[0]
+        dat={
+            'token':str(token),
+        }
+        user.last_login=datetime.datetime.now()
+        user.save()
+        # json_data=serialize('json',[dat,])
+        return JsonResponse(dat,status=200)
  
-#     return HttpResponse(status=401)
+    return HttpResponse(status=401)
 
  
