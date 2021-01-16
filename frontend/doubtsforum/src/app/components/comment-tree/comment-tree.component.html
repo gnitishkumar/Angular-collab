@@ -1,7 +1,7 @@
 <div id="mainDiv" *ngFor="let comment of comments">
   <section class="discussion">
     <div class="top-section">
-      <div class="arrangement">
+      <div class="arrangement" routerLinkActive="Active" routerLink="/profile/{{comment.user}}">
         <div class="user-logo">
           <i class="fas fa-user-circle userlogo"></i>
         </div>

@@ -1,7 +1,7 @@
 from django.test import TestCase
 import requests
 import json
-
+ 
 # Create your tests here.
 BASE_URL=r'http://localhost:8000/'
 def create_user():
@@ -32,11 +32,11 @@ def update_user():
 
 def login():
     dat={
-        'username':'Hanu',
-        'password':'1228'
+        'username':'siva',
+        'password':'siva@05b4'
     }
     headers = {'Authorization': 'Token bd82153205ff3f7459b16928e6ae3637c269fcb5'}
-    res=requests.post(BASE_URL+'login',dat)
+    res=requests.post(BASE_URL+'login',data=json.dumps(dat))
     print(res.status_code)
     print(res.text)
     

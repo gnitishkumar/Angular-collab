@@ -21,19 +21,19 @@ export class PostComponent implements OnInit {
     this.p=new discussion();
     this.p.name=localStorage.getItem('username');
     this.p.subtitle=this.fetchService.getProfession(this.p.name);
-    console.log(this.p.subtitle)
+    
     this.p.question=(<HTMLInputElement>(document).getElementsByClassName("question")[0]).value;
     this.p.categories=this.categories.value;
     if(this.p.question && this.p.categories)
     {
       this.fetchService.addPost(this.p).subscribe(res=>{
-        console.log(res);
+       
         this.router.navigate([""]);
       }
       ,err=>{
         window.alert("please login !!")
         this.router.navigate(["login"]);
-        console.log(err);
+        
       }
       );
     }

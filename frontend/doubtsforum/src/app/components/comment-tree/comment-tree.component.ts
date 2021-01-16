@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { PostingdoubtService } from 'src/app/services/postingdoubt.service';
 // export class CommentNode {
 //   text:string ='';
@@ -38,7 +39,7 @@ export class CommentTree implements OnInit {
   data:string;
   pos;
   @Output() notify = new EventEmitter();
-  constructor(private route:ActivatedRoute,private fetchService:PostingdoubtService){
+  constructor(private route:ActivatedRoute,private fetchService:PostingdoubtService,private authserve:AuthService){
   }
 
   ngOnInit(){
@@ -47,28 +48,31 @@ export class CommentTree implements OnInit {
   }
 
   addComment(parent){
-
-    if(true)
+    if(!this.authserve.isAuthenticated())
+    {
+      window.alert("please login");
+    }
+    else
     {    
         this.fetchService.addreply(this.data,parent,this.pos).subscribe(res=>{
-        console.log(res);
+        
         //  window.location.reload();
         // this.router.navigate(['commenting/'+this.pos]);
         this.data="";
           this.fetchService.getPostComments(this.pos).subscribe(res=>{
             this.comments=res;
             },err=>{
-               console.log(err)
+                
             });
           
           },err=>{
-            console.log(err)
+             
       });
     }
   }
 
   openCommentText(comment){
-    console.log(comment)
+    
     comment.isOpen = !comment.isOpen;
   }
 

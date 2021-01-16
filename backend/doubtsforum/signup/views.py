@@ -17,10 +17,11 @@ from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from posting.models import Posts
 # Create your views here.
+import datetime
 
 def register(request):
     data=json.loads(request.body)
-    print(data)
+   
     try:
         res=User.objects.create_user(username=data['username'],password=data['password'],profession=data['profession'],email=data['email'],mobile=data['mobile'])
         res.save()
@@ -68,7 +69,7 @@ class UserCrud(View):
     #@csrf_exempt
     def post(self,request,*args,**kwargs):
         data=json.loads(request.body)
-        print(data)
+     
         try:
             res=User.objects.create_user(username=data['username'],password=data['password'],profession=data['profession'],email=data['email'],mobile=data['mobile'])
             res.save()
@@ -91,16 +92,15 @@ def login(request):
     #user=User.objects.get(username=data['username'])
     if user:
         token=Token.objects.get_or_create(user=user)
-        token='Token '+token[0]
+        token=token[0]
         dat={
-            'username':data['username'],
-            'password':data['password'],
-            'Authorization':token,
-            'text':'success'
+            'token':str(token),
         }
+        user.last_login=datetime.datetime.now()
+        user.save()
         # json_data=serialize('json',[dat,])
         return JsonResponse(dat,status=200)
-    print("Hello")
+ 
     return HttpResponse(status=401)
 
  

@@ -7,7 +7,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class PostingdoubtService {
-  url="http://localhost:8000/";
+  url="https://doubtsforum.herokuapp.com/";
+  // url="http://localhost:8000/";
   questions:discussion[]=[];
   constructor(private http:HttpClient) {
     for(let i=0;i<20;i++)

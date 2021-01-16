@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.db.models import Model
-from django.contrib.auth.models import User
+from django.contrib.auth.models  import User
 
 class Posts(Model):
     question=models.TextField()
@@ -28,7 +28,7 @@ class Comments(Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     post=models.ForeignKey(Posts,on_delete=models.CASCADE)
     description=models.TextField()
-    parentComment=models.IntegerField(default=0)
+    parentComment=models.BigIntegerField(default=0)
 
 
 class Bookmark(Model):
@@ -37,4 +37,3 @@ class Bookmark(Model):
     bookmark=models.BooleanField(default=False)
 # p1:
 # 1 2pm <1 object>
-

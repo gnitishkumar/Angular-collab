@@ -3,6 +3,8 @@
   padding: 1rem;
   justify-content: flex-start;
   align-content: flex-start;
+  cursor: pointer;
+  outline: none;
 }
 .clck{
   color:black;
@@ -20,18 +22,21 @@
     top:50px;
     width:60%; */
     height:max-content;
+  
     box-shadow: 0px 0px 2px 1px rgb(158, 148, 148);
     border-radius: 20px;
     margin-top: 1rem;
   }
   .userlogo{
-    color: #2c343a;
+    color: white;
   }
   .top-section{
-    font-size: 1.5rem;
+    font-size: 1.5rem;  
     display:flex;
     justify-content: space-between;
-    color: #8a3224;
+    color: white;
+    background-color: #0c406d;
+    border-radius: 20px 20px 0 0;
   }
   .time-color{
     font-size: 1rem;
@@ -67,6 +72,7 @@
     text-align: justify;
     font-size: 1.25rem;
     line-height: 2rem;
+    letter-spacing: 1px;
   }
   .user-name{
     display: flex;
@@ -123,9 +129,8 @@
     overflow-wrap: normal;
   }
   .top-section{
-    max-width: max-content;
     font-size: 0.8rem;
-  }
+  } 
   .question{
     font-size: 0.75rem;
     line-height: 1rem;

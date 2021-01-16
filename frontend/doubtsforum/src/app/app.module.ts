@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UpdProfileComponent } from './components/upd-profile/upd-profile.component';
 import { FavouriteComponent } from './components/favourite/favourite.component';
+import { ScrollTopService } from './scrolltop.service';
 //import {AuthheaderInterceptor}
 
 
@@ -47,6 +48,7 @@ import { FavouriteComponent } from './components/favourite/favourite.component';
     HttpClientModule
   ],
   providers: [
+    ScrollTopService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     {
       provide:HTTP_INTERCEPTORS,

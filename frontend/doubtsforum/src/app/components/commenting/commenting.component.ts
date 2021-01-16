@@ -24,13 +24,13 @@ export class CommentingComponent implements OnInit {
     this.fetchService.getPostId(this.pos).subscribe(res=>{
       this.comment=res;
     },err=>{
-      console.log(err)
+      
     });
 
     this.fetchService.getPostComments(this.pos).subscribe(res=>{
       this.MainComments=res;
     },err=>{
-      console.log(err)
+       
     });
 
   }
@@ -39,29 +39,25 @@ export class CommentingComponent implements OnInit {
     if(true)
      {    
           this.fetchService.addComment(this.data,this.pos).subscribe(res=>{
-          console.log(res);
+           
           this.load();
           this.data="";
-       // this.router.navigate(['commenting/'+this.pos]);
-        // this.fetchService.getPostComments(this.pos).subscribe(res=>{
-        //   this.MainComments=res;
-        // },err=>{
-        //   console.log(err)
-        // });
-
+          window.location.reload();
         },err=>{
-          console.log(err)
+          window.alert("please login !");
+          this.router.navigate(['login'])
+          
         });
     }
 
   }
 
   load(){
-      console.log("hello");
+      
       this.fetchService.getPostComments(this.pos).subscribe(res=>{
       this.MainComments=res;
       },err=>{
-      console.log(err)
+      
     });
   }
   togglingReplies()
@@ -76,7 +72,7 @@ export class CommentingComponent implements OnInit {
   // }
 
   openCommentText(comment){
-    console.log(comment)
+   
     comment.isOpen = !comment.isOpen;
   }
 

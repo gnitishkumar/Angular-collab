@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EventEmitter } from 'events';
 import { data } from 'jquery';
+import { ScrollTopService } from 'src/app/scrolltop.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,7 +11,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
   public username:string='';
  
   public email:string='';
@@ -18,9 +19,13 @@ export class ProfileComponent implements OnInit {
   public posts:number=null;
   public last_login:string='';
   not_user:boolean=false;
-  constructor(private route:ActivatedRoute,private service:AuthService,private router:Router) {
+  constructor(private route:ActivatedRoute,private service:AuthService,private router:Router, private scrollTopService: ScrollTopService) {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    window.scrollTo(0,0);
+    
   }
   ngOnInit(): void {
+    this.scrollTopService.setScrollTop();
     let usrId="";
     let u2="";
     if(localStorage.getItem('username')){
@@ -32,9 +37,9 @@ export class ProfileComponent implements OnInit {
     }
     catch(error)
     {
-      console.log(error)
+       
     }
-    console.log(usrId);
+     
     if(u2==usrId)
     {
       this.not_user=false;
@@ -50,6 +55,8 @@ export class ProfileComponent implements OnInit {
     
     if(usrId)
     {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      
         this.service.getProfile(usrId).subscribe(data=> {
         this.username=data['username'];
         this.email=data['email'];
@@ -57,11 +64,20 @@ export class ProfileComponent implements OnInit {
         this.profession=data['profession'];
         this.posts=data['posts'];
         this.last_login=data['last_login'];
-      },err=>{console.log(err)}); 
+       }); 
+       document.body.scrollTop = document.documentElement.scrollTop = 0;
+      window.scrollTo(0,0);
     }
     else
     {
       this.router.navigate(['']);
     } 
+    this.top();
+    
+  }
+  top()
+  {
+    document.body.scrollTop = document.documentElement.scrollTop = 5;
+    window.scrollTo(0,0);
   }
 }

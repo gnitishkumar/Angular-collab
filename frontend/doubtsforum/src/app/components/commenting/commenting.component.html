@@ -1,7 +1,7 @@
 <div class="comment-section" *ngIf="comment">
     <section class="discussion">
         <div class="top-section">
-        <div class="arrangement">
+        <div class="arrangement" routerLinkActive="Active" routerLink="/profile/{{comment.username}}">
             <div class="user-logo">
             <i class="fas fa-user-circle fa-2x userlogo"></i>
             </div>

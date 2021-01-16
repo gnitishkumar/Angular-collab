@@ -6,8 +6,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class AuthService {
 
-url="http://localhost:8000/";
-
+url="https://doubtsforum.herokuapp.com/";
+  // url="http://localhost:8000/";
   header;
   username;
 
@@ -33,7 +33,7 @@ url="http://localhost:8000/";
   }
   getProfile(usr)
   {
-    console.log(usr);
+    
     return this.http.get(this.url+"profile/"+usr);
   }
   updating(mail,mobile,profession)
