@@ -1,7 +1,7 @@
 import { HostListener } from '@angular/core';
 import { Component, OnChanges, OnInit } from '@angular/core';
- 
- 
+
+
 import { PostingdoubtService } from 'src/app/services/postingdoubt.service';
 //import { CommentNode } from '../comment-tree/comment-tree.component';
 
@@ -13,14 +13,14 @@ import { PostingdoubtService } from 'src/app/services/postingdoubt.service';
 export class HomeComponent implements OnInit {
   multipleposts:any;
   timed:boolean=false;
-  user:string;
+  user:string="";
   constructor(private fetchService:PostingdoubtService) {
 
   }
   ngOnInit(): void {
-     
+
     this.add();
-   
+
     // setTimeout(this.timeOut,5);
     //console.log(this.fetchService.getPosts());
   }
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   timeOut()
   {
     this.timed=true;
-  
+
   }
   bookmarked(id)
   {
@@ -39,7 +39,17 @@ export class HomeComponent implements OnInit {
         this.add();
       },err=>{
         window.alert("pls login");
-    
+
+      }
+      );
+  }
+  delete(id)
+  {
+    this.fetchService.deletePost(id).subscribe(data=>
+      {
+        this.add();
+      },err=>{
+
       }
       );
   }
@@ -51,7 +61,7 @@ export class HomeComponent implements OnInit {
       },err=>
       {
         window.alert("please login");
-         
+
       });
 
   }
@@ -63,9 +73,9 @@ export class HomeComponent implements OnInit {
     }
     this.fetchService.getFilteredPosts(cat,usr).subscribe(res=>{
       this.multipleposts=res;
-       
+
     },err=>{
-       
+
     });
     this.timed=true;
     this.user=localStorage.getItem('username');
@@ -78,9 +88,9 @@ export class HomeComponent implements OnInit {
     }
     this.fetchService.getPosts(usr).subscribe(res=>{
       this.multipleposts=res;
-    
+
     },err=>{
-      
+
     });
     this.user=localStorage.getItem('username');
   }

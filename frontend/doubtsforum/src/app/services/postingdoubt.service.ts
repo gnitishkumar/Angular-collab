@@ -58,7 +58,10 @@ export class PostingdoubtService {
   {
     return this.http.get(this.url+'profession',{params:{"username":username}})
   }
-
+  deletePost(id)
+  {
+    return this.http.post(this.url+'deletepost',{"id":id});
+  }
   toggleBookmark(id){
     return this.http.post(this.url+"bookmark",{'id':id});
   }

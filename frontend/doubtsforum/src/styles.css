@@ -6,7 +6,7 @@ padding: 0;
 
 html, body { height: 100%; }
 body {
-     margin: 0; 
+     margin: 0;
      font-family: Roboto, "Helvetica Neue", sans-serif;
      background-color: rgba(244, 252, 252, 0.2);
  }
@@ -24,4 +24,15 @@ app-root{
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
+}
+::-webkit-scrollbar{
+	width: 15px;
+}
+/* ::-webkit-scrollbar-track{
+	border:1px solid  #0c406d;
+
+} */
+::-webkit-scrollbar-thumb{
+	background: #0c406d;
+  border-radius: 6px;
 }

@@ -5,16 +5,16 @@
         <div class="logo" routerLinkActive='Active' routerLink=''>
           <h1>DF</h1>
         </div>
-        <div class="logo-name main-color" routerLinkActive='Active' routerLink=''>
-          Doubts Forum
+        <div class="logo-name main-color " routerLinkActive='Active' routerLink=''>
+          <span class="cl">Doubts Forum</span>
         </div>
       </div>
       <div class="navbar-second">
-        <div class="post-doubts main-color" routerLinkActive='Active' routerLink='post'>
-          POST
+        <div class="post-doubts main-color " routerLinkActive='Active' routerLink='post'>
+          <span class="cl">POST</span>
         </div>
-        <div class="resolved-doubts main-color" *ngIf="logIn()" routerLinkActive='Active' routerLink='favourites'>
-          FAVOURITES
+        <div class="resolved-doubts main-color " *ngIf="logIn()" routerLinkActive='Active' routerLink='favourites'>
+          <span class="cl">FAVOURITES</span>
         </div>
         <div class="account main-color" >
           <div *ngIf="logIn()">
@@ -28,9 +28,9 @@
             </div>
           </div>
           <div *ngIf="!logIn()">
-            <span style="outline: none;" routerLinkActive="Active" routerLink="login">LOGIN</span>
+            <span class="cl" style="outline: none;" routerLinkActive="Active" routerLink="login">LOGIN</span>
             &nbsp;&nbsp;
-            <span style="outline: none;" routerLinkActive="Active" routerLink="signup">REGISTER</span>
+            <span class="cl" style="outline: none;" routerLinkActive="Active" routerLink="signup">REGISTER</span>
           </div>
         </div>
       </div>
